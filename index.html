@@ -11,6 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <link rel="preload" as="image" href="logos/Bhetinch%20logo.png">
+
   <style>
     /* 01. Design tokens */
     :root {
@@ -407,6 +409,56 @@
       .desktop-nav { gap: 0; margin-right: 4px; }
       .desktop-nav button { padding: 9px 8px; font-size: 11px; }
     }
+
+    /* 23. v1.5: clear, responsive logos without changing service behavior */
+    .service-tile {
+      min-height: 198px;
+    }
+
+    .tile-icon {
+      width: 102px;
+      height: 102px;
+      border-radius: 25px;
+      flex: 0 0 auto;
+      font-size: 44px;
+      overflow: hidden;
+    }
+
+    .tile-icon img {
+      display: block;
+      width: 92px;
+      height: 92px;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+    }
+
+    @media (max-width: 650px) {
+      .service-tile {
+        min-height: 174px;
+        padding: 13px 5px;
+      }
+
+      .tile-icon {
+        width: min(78px, 23vw);
+        height: min(78px, 23vw);
+        border-radius: 21px;
+        font-size: 34px;
+      }
+
+      .tile-icon img {
+        width: 100%;
+        height: 100%;
+        padding: 3px;
+      }
+    }
+
+    @media (max-width: 340px) {
+      .tile-icon {
+        width: 66px;
+        height: 66px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -417,8 +469,11 @@
         <img
           class="brand-logo"
           id="brandLogo"
-          src="Bhetinch%20logo.png"
+          src="logos/Bhetinch%20logo.png"
           alt="भेटिन्छ लोगो"
+          width="64"
+          height="58"
+          fetchpriority="high"
           decoding="async"
         >
         <div>
@@ -435,10 +490,6 @@
         <button id="desktopServicesNav" type="button">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
           डिजिटल सेवाहरू
-        </button>
-        <button id="desktopDeveloperNav" type="button" aria-haspopup="dialog" aria-controls="developerDialog">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></svg>
-          About Developer
         </button>
       </nav>
       <div class="header-actions">
@@ -545,7 +596,7 @@
     };
 
     const byId = (id) => document.getElementById(id);
-    const FALLBACK_LOGO = 'Bhetinch%20logo.png';
+    const FALLBACK_LOGO = 'logos/Bhetinch%20logo.png';
     let toastTimeout;
 
     /* 11. Safe helpers */
@@ -590,12 +641,28 @@
       // Keep the Digital Hub distinct from the main Bhetinchha directory.
       const logo = byId('brandLogo');
       const configuredLogo = safeHttpUrl(values.LogoURL);
-      logo.src = configuredLogo || FALLBACK_LOGO;
-      logo.onerror = function () {
-        if (!this.src.endsWith(FALLBACK_LOGO)) this.src = FALLBACK_LOGO;
-        else this.style.visibility = 'hidden';
-      };
+      // The local logo is available immediately, before the API request finishes.
+      // Avoid reloading the same image on every data refresh.
+      const defaultLogoUrl = new URL(FALLBACK_LOGO, document.baseURI).href;
+      const preferredLogoUrl = configuredLogo || defaultLogoUrl;
+      if (logo.src !== preferredLogoUrl) {
+        logo.src = preferredLogoUrl;
+      }
     }
+
+    /* Header logo fallback: never expose the browser's broken-image icon. */
+    const headerLogo = byId('brandLogo');
+    headerLogo.addEventListener('error', () => {
+      const localLogo = new URL(FALLBACK_LOGO, document.baseURI).href;
+      if (headerLogo.src !== localLogo) {
+        headerLogo.src = localLogo;
+      } else {
+        headerLogo.style.display = 'none';
+      }
+    });
+    headerLogo.addEventListener('load', () => {
+      headerLogo.style.display = '';
+    });
 
     /* 13. Category filters */
     function renderFilters() {
@@ -635,7 +702,14 @@
     function createIcon(iconValue) {
       const holder = createElement('span', 'tile-icon');
       const iconText = String(iconValue || '').trim();
-      const iconUrl = /^https?:\/\//i.test(iconText) ? safeHttpUrl(iconText) : null;
+      // Supports an emoji, a full image URL, or a filename in /logos/.
+      // Example: stayease-Logo.png -> logos/stayease-Logo.png
+      const isLogoFile = /^[^\/\\?#]+\.(?:png|jpe?g|webp|gif|svg|avif)$/i.test(iconText);
+      const iconUrl = /^https?:\/\//i.test(iconText)
+        ? safeHttpUrl(iconText)
+        : isLogoFile
+          ? new URL(`logos/${encodeURIComponent(iconText)}`, document.baseURI).href
+          : null;
 
       if (iconUrl) {
         const image = document.createElement('img');
@@ -835,7 +909,6 @@
     // Desktop menu uses the same working sections and developer dialog.
     byId('desktopHomeNav').addEventListener('click', () => scrollToId('home'));
     byId('desktopServicesNav').addEventListener('click', () => scrollToId('services'));
-    byId('desktopDeveloperNav').addEventListener('click', () => infoButton.click());
     byId('infoNav').addEventListener('click', () => infoButton.click());
     byId('homeNav').addEventListener('click', () => scrollToId('home'));
     byId('servicesNav').addEventListener('click', () => scrollToId('services'));
