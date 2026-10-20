@@ -256,7 +256,7 @@
       display: grid;
       justify-items: center;
       gap: 4px;
-      min-width: 78px;
+      min-width: 62px;
       border: 0;
       background: transparent;
       color: #7d8492;
@@ -297,6 +297,74 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
     }
+
+    /* 19. Premium visual polish: additive styles only */
+    body {
+      background:
+        radial-gradient(ellipse at 12% 5%, rgba(255, 223, 227, .45), transparent 30%),
+        radial-gradient(ellipse at 90% 18%, rgba(216, 226, 255, .55), transparent 33%),
+        #f5f6fa;
+    }
+    .topbar { box-shadow: 0 4px 22px rgba(25, 34, 55, .035); }
+    .brand-logo { filter: drop-shadow(0 3px 5px rgba(30, 45, 75, .08)); }
+    .welcome-card {
+      background:
+        radial-gradient(circle at 93% 15%, rgba(255, 120, 142, .17), transparent 34%),
+        radial-gradient(circle at 5% 95%, rgba(111, 151, 255, .14), transparent 38%),
+        linear-gradient(130deg, #fff, #f7f8ff 70%, #fff4f5);
+      box-shadow: 0 18px 40px rgba(46, 59, 91, .075), inset 0 1px 0 #fff;
+    }
+    .welcome h2 { letter-spacing: -.025em; }
+    .search-box:focus-within { border-color: rgba(220, 36, 57, .4); box-shadow: 0 0 0 4px rgba(220, 36, 57, .065); }
+    .service-tile { isolation: isolate; }
+    .service-tile:hover .tile-icon { transform: translateY(-3px) scale(1.035); }
+    .tile-icon { transition: transform .2s ease; }
+    .service-tile.featured { border-color: rgba(235, 147, 160, .4); }
+    .service-tile.featured::after {
+      content: '★'; position: absolute; right: 11px; top: 8px;
+      font-size: 13px; color: #e9a22d;
+    }
+    .header-actions .icon-button:focus-visible { outline-offset: 3px; }
+
+    /* 20. Developer profile: accessible responsive information dialog */
+    .info-dialog {
+      width: min(440px, calc(100% - 28px));
+      max-height: min(88vh, 760px);
+      max-height: min(88dvh, 760px);
+      overflow-y: auto;
+      border: 1px solid rgba(255, 255, 255, .85);
+      border-radius: 28px;
+      padding: 0;
+      color: var(--ink);
+      background: #fff;
+      box-shadow: 0 30px 100px rgba(23, 33, 58, .28);
+    }
+    .info-dialog::backdrop { background: rgba(19, 29, 49, .56); backdrop-filter: blur(7px); }
+    .dialog-top { position: relative; padding: 22px 22px 0; display: flex; align-items: center; justify-content: space-between; }
+    .dialog-title { font-size: 15px; font-weight: 800; margin: 0; }
+    .dialog-close { width: 38px; height: 38px; border: 1px solid var(--stroke); border-radius: 12px; background: #fff; font-size: 22px; color: var(--muted); }
+    .developer-card { padding: 12px 27px 30px; text-align: center; }
+    .developer-photo-frame {
+      width: 146px; height: 146px; margin: 4px auto 18px;
+      border-radius: 50%; padding: 5px;
+      background: linear-gradient(145deg, #f04559, #ffd1a4 48%, #829cf5);
+      box-shadow: 0 12px 30px rgba(211, 65, 85, .19);
+    }
+    .developer-photo { width: 100%; height: 100%; border: 4px solid #fff; border-radius: 50%; object-fit: cover; object-position: 50% 25%; background: #fff; }
+    .developer-role { font-size: 11px; font-weight: 800; letter-spacing: .09em; color: var(--brand); text-transform: uppercase; }
+    .developer-name { margin: 7px 0; font-size: 25px; line-height: 1.4; font-weight: 800; }
+    .developer-subtitle { color: var(--muted); font-size: 12px; line-height: 1.75; margin: 0 0 18px; }
+    .developer-contact { display: flex; align-items: center; justify-content: center; gap: 8px; color: var(--ink); text-decoration: none; font-weight: 700; margin-bottom: 16px; }
+    .developer-call { display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 46px; width: 100%; border-radius: 14px; background: linear-gradient(115deg, #e32a43, #b91633); color: #fff; text-decoration: none; font-size: 13px; font-weight: 800; box-shadow: 0 9px 20px rgba(220, 36, 57, .2); }
+    .developer-call:active { transform: scale(.98); }
+    .footer { line-height: 2; }
+    .footer-credit { display: block; color: #5b6273; font-weight: 600; }
+    .footer-credit a { color: #b71d35; text-decoration: none; font-weight: 800; }
+    @media (max-width: 650px) {
+      .service-tile { box-shadow: 0 8px 20px rgba(42, 53, 82, .09), inset 0 1px #fff; }
+      .welcome-card { padding: 23px 19px 22px; }
+      .developer-photo-frame { width: 134px; height: 134px; }
+    }
   </style>
 </head>
 <body>
@@ -317,6 +385,9 @@
         </div>
       </div>
       <div class="header-actions">
+        <button class="icon-button" id="infoButton" type="button" aria-label="डेभलपर जानकारी" title="जानकारी" aria-haspopup="dialog" aria-controls="developerDialog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></svg>
+        </button>
         <button class="icon-button" id="refreshButton" type="button" aria-label="सेवाहरू रिफ्रेस गर्नुहोस्" title="रिफ्रेस">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>
         </button>
@@ -358,7 +429,10 @@
     </section>
   </main>
 
-  <footer class="footer container" id="footer">© <span id="footerYear"></span> भेटिन्छ Digital Hub ।</footer>
+  <footer class="footer container" id="footer">
+    <span>© <span id="footerYear"></span> भेटिन्छ Digital Hub ।</span>
+    <span class="footer-credit">Designed &amp; Developed by <strong>Nirajan Aryal</strong> (<a href="tel:9851113811" aria-label="Nirajan Aryal लाई 9851113811 मा फोन गर्नुहोस्">9851113811</a>)</span>
+  </footer>
 
   <!-- Navigation controls operate locally; no invented external links. -->
   <nav class="bottom-nav" aria-label="मुख्य नेभिगेसन">
@@ -374,7 +448,28 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.3"/><path d="m16.4 16.4 5 5"/></svg>
       खोजी
     </button>
+    <button id="infoNav" type="button" aria-label="डेभलपर जानकारी">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5h.01"/></svg>
+      जानकारी
+    </button>
   </nav>
+  <!-- 21. Developer information dialog; photo bundled with this update -->
+  <dialog class="info-dialog" id="developerDialog" aria-labelledby="developerDialogTitle">
+    <div class="dialog-top">
+      <h2 class="dialog-title" id="developerDialogTitle">ⓘ &nbsp; जानकारी / About</h2>
+      <button class="dialog-close" id="closeDeveloperDialog" type="button" aria-label="जानकारी बन्द गर्नुहोस्">×</button>
+    </div>
+    <div class="developer-card">
+      <div class="developer-photo-frame">
+        <img class="developer-photo" src="developer-photo.jpg" alt="Developer profile photo" width="146" height="146" loading="lazy" decoding="async">
+      </div>
+      <span class="developer-role">Designed &amp; Developed By</span>
+      <h3 class="developer-name">Nirajan Aryal</h3>
+      <p class="developer-subtitle">भेटिन्छ Digital Hub को डिजाइन तथा विकास ।</p>
+      <a class="developer-contact" href="tel:9851113811">☎ &nbsp; 9851113811</a>
+      <a class="developer-call" href="tel:9851113811">☎ &nbsp; Call Developer</a>
+    </div>
+  </dialog>
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script>
@@ -504,6 +599,9 @@
     function makeTile(system) {
       const url = safeHttpUrl(system.Link);
       const tile = createElement('a', 'service-tile');
+      if (String(system.Featured || '').trim().toLowerCase() === 'yes') {
+        tile.classList.add('featured');
+      }
       tile.href = url;
       tile.target = '_blank';
       tile.rel = 'noopener noreferrer';
@@ -654,6 +752,21 @@
       byId(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    /* 22. Information popup: native dialog, ESC and outside-click support */
+    const developerDialog = byId('developerDialog');
+    const infoButton = byId('infoButton');
+    infoButton.addEventListener('click', () => {
+      if (typeof developerDialog.showModal === 'function') {
+        developerDialog.showModal();
+      } else {
+        developerDialog.setAttribute('open', '');
+      }
+    });
+    byId('closeDeveloperDialog').addEventListener('click', () => developerDialog.close());
+    developerDialog.addEventListener('click', (event) => {
+      if (event.target === developerDialog) developerDialog.close();
+    });
+
     byId('footerYear').textContent = new Date().getFullYear();
     byId('refreshButton').addEventListener('click', loadServices);
     byId('searchInput').addEventListener('input', renderServices);
@@ -662,6 +775,7 @@
       renderServices();
       byId('searchInput').focus();
     });
+    byId('infoNav').addEventListener('click', () => infoButton.click());
     byId('homeNav').addEventListener('click', () => scrollToId('home'));
     byId('servicesNav').addEventListener('click', () => scrollToId('services'));
     byId('searchNav').addEventListener('click', () => {
