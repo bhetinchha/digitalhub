@@ -1,32 +1,675 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ne">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#d7192d">
-<title>भेटिन्छ | Digital Hub</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--red:#d7192d;--ink:#20232d;--muted:#747986;--line:#e9e9ee;--bg:#fafafb}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,'Noto Sans Devanagari',sans-serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #f7a7b1;outline-offset:3px}.shell{max-width:1180px;margin:auto;padding:0 24px}.header{height:78px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}.header .shell{height:100%;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit}.mark{width:46px;height:46px;background:var(--red);border-radius:15px;display:grid;place-items:center;color:#fff;font-size:25px;font-weight:800;box-shadow:0 7px 17px #d7192d2a}.brand strong{display:block;font-size:24px;line-height:1.2}.brand small{font-size:11px;color:var(--muted)}.topnav{display:flex;gap:26px;align-items:center}.topnav a{color:#555965;text-decoration:none;font-size:13px;font-weight:650}.topnav a:hover{color:var(--red)}.header-action{background:#fff;border:1px solid #e6e4e4;border-radius:13px;padding:12px 16px;color:#30323b;font-weight:700}.header-action:hover{border-color:var(--red);color:var(--red)}.hero{text-align:center;padding:85px 0 42px;background:radial-gradient(ellipse at 50% 5%,#fff1f2 0,transparent 60%),#fff;border-bottom:1px solid #f0eff1}.eyebrow{display:inline-flex;align-items:center;gap:7px;border:1px solid #f4d5d9;color:#b7192b;background:#fff9fa;border-radius:99px;padding:8px 14px;font-size:12px;font-weight:750}.dot{height:7px;width:7px;border-radius:50%;background:var(--red)}h1{font-size:clamp(32px,5vw,57px);line-height:1.4;letter-spacing:-1.5px;margin:21px 0 8px;font-weight:800}h1 span{color:var(--red)}.sub{color:#707584;font-size:clamp(13px,1.6vw,16px);line-height:2;margin:0 auto;max-width:850px}.search-panel{display:flex;gap:10px;align-items:center;background:#fff;border:1px solid #e9e7e8;box-shadow:0 20px 60px #24263812;border-radius:19px;padding:10px;margin:37px auto 0;max-width:770px}.search-panel svg{flex-shrink:0;margin-left:12px;color:#9295a0}.search-panel input{flex:1;border:0;outline:none;min-width:0;padding:13px 4px;font-size:15px;color:var(--ink)}.primary{background:linear-gradient(135deg,#e21c33,#c71129);color:white;border:0;border-radius:12px;padding:15px 25px;font-weight:750;box-shadow:0 7px 16px #d7192d26;transition:transform .18s,filter .18s}.primary:hover{filter:brightness(1.06);transform:translateY(-1px)}.primary:active,.chip:active,.card:active{transform:scale(.98)}.primary:disabled{opacity:.6;cursor:wait}.popular{display:flex;gap:9px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:20px}.popular label{color:#838691;font-size:12px}.chip{border:1px solid #e8e7e9;background:#fff;border-radius:99px;padding:9px 15px;color:#555963;font-size:12px;transition:all .2s}.chip:hover,.chip.active{background:#fff0f2;color:var(--red);border-color:#f3b7bf}.section{padding:48px 0 85px}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;margin-bottom:23px}.section-head h2{font-size:25px;margin:0 0 7px;letter-spacing:-.4px}.section-head p{color:var(--muted);font-size:13px;margin:0}.count{font-size:12px;color:var(--red);font-weight:700}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}.card{background:linear-gradient(145deg,#fff,#fdfdff);border:1px solid #eaeaf0;border-radius:21px;min-height:238px;padding:25px 20px 20px;text-align:center;box-shadow:0 9px 25px #262b3a07;transition:transform .22s,box-shadow .22s,border-color .22s;display:flex;flex-direction:column;align-items:center;position:relative}.card:hover{transform:translateY(-5px);box-shadow:0 17px 38px #262b3a13;border-color:#f3b8c1}.card .symbol{width:62px;height:62px;display:grid;place-items:center;font-size:30px;border:1px solid #f2e9ea;background:linear-gradient(145deg,#fff7f8,#fff);border-radius:19px;margin-bottom:16px;box-shadow:inset 0 1px #fff,0 6px 15px #d7192d0b}.card h3{font-size:16px;margin:0 0 9px;line-height:1.6}.card p{font-size:12px;color:var(--muted);line-height:1.85;margin:0 0 19px;flex:1}.card a{border:1px solid #f1cbd1;background:#fff6f7;color:#bd1930;text-decoration:none;padding:10px 16px;border-radius:11px;font-size:12px;font-weight:750;transition:all .2s}.card a:hover{background:var(--red);color:#fff;border-color:var(--red)}.empty{grid-column:1/-1;text-align:center;background:#fff;border:1px dashed #dddde3;border-radius:20px;padding:48px 18px;color:#767b85}.empty strong{display:block;color:#303440;margin-bottom:10px}.empty button{margin-top:14px}.skeleton{height:238px;border-radius:21px;background:linear-gradient(90deg,#eeeef1,#fff,#eeeef1);background-size:200% 100%;animation:shimmer 1.2s infinite}@keyframes shimmer{to{background-position-x:-200%}}.footer{background:#fff;border-top:1px solid var(--line);padding:26px 0;color:#858996;font-size:12px}.footer .shell{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,30px);background:#252936;color:white;padding:12px 20px;border-radius:12px;box-shadow:0 15px 30px #0002;z-index:99;opacity:0;pointer-events:none;transition:.25s;font-size:13px}.toast.show{opacity:1;transform:translate(-50%,0)}@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.topnav{gap:13px}}@media(max-width:650px){.shell{padding:0 17px}.header{height:70px}.topnav{display:none}.brand strong{font-size:21px}.header-action{padding:10px;font-size:12px}.hero{padding:59px 0 36px}h1{letter-spacing:-.7px}.search-panel{margin-top:26px;padding:7px;gap:3px}.search-panel input{font-size:13px}.search-panel svg{margin-left:7px}.primary{padding:14px 13px;font-size:12px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.card{padding:21px 12px 16px;min-height:222px}.card h3{font-size:14px}.card p{font-size:11px}.section{padding:35px 0 70px}.section-head h2{font-size:21px}}@media(max-width:360px){.grid{grid-template-columns:1fr}.brand small{display:none}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f7fb">
+  <meta name="description" content="भेटिन्छ Digital Hub — सबै डिजिटल सेवाहरू एकै ठाउँमा ।">
+  <title>भेटिन्छ | Digital Hub</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* 01. Design tokens */
+    :root {
+      color-scheme: light;
+      --page: #f5f6fa;
+      --paper: rgba(255, 255, 255, .87);
+      --white: #ffffff;
+      --ink: #202638;
+      --muted: #70788b;
+      --brand: #dc2439;
+      --brand-soft: #fff0f2;
+      --stroke: rgba(136, 149, 173, .18);
+      --shadow: 0 10px 26px rgba(37, 51, 79, .07);
+      --radius: 23px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 280px;
+      color: var(--ink);
+      background: var(--page);
+      font-family: 'Inter', 'Noto Sans Devanagari', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    button:disabled { cursor: wait; opacity: .65; }
+    :focus-visible { outline: 3px solid #e97d8b; outline-offset: 3px; }
+    .container { width: min(1140px, calc(100% - 36px)); margin-inline: auto; }
+
+    /* 02. Header and brand */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--stroke);
+      background: rgba(255, 255, 255, .83);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+    .topbar-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .identity { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .brand-logo {
+      width: 64px;
+      height: 58px;
+      object-fit: contain;
+      flex: none;
+    }
+    .brand-name { margin: 0; font-size: 22px; line-height: 1.35; font-weight: 800; }
+    .brand-caption { display: block; font-size: 11px; color: var(--muted); font-weight: 600; }
+    .header-actions { display: flex; align-items: center; gap: 9px; }
+    .icon-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 43px;
+      height: 43px;
+      border: 1px solid var(--stroke);
+      border-radius: 15px;
+      background: var(--white);
+      color: var(--ink);
+      box-shadow: 0 4px 12px rgba(20, 30, 50, .035);
+      transition: transform .18s ease, background .18s ease;
+    }
+    .icon-button:hover { background: var(--brand-soft); }
+    .icon-button:active { transform: scale(.94); }
+    .icon-button svg { width: 20px; height: 20px; }
+
+    /* 03. Compact welcome and search */
+    .welcome { padding: 36px 0 24px; }
+    .welcome-card {
+      position: relative;
+      overflow: hidden;
+      padding: 32px 34px;
+      border: 1px solid rgba(255, 255, 255, .8);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 96% 0%, rgba(227, 79, 106, .14), transparent 33%),
+        radial-gradient(circle at 5% 95%, rgba(113, 137, 233, .13), transparent 36%),
+        linear-gradient(125deg, #fff, #f7f8ff);
+      box-shadow: var(--shadow);
+    }
+    .welcome-card::after {
+      content: '';
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border: 1px solid rgba(220, 36, 57, .09);
+      border-radius: 50%;
+      right: -100px;
+      top: -110px;
+      pointer-events: none;
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: #bb2639;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ''; width: 7px; height: 7px; background: var(--brand); border-radius: 50%; }
+    .welcome h2 { font-size: clamp(23px, 3.2vw, 34px); line-height: 1.55; margin: 9px 0 4px; }
+    .welcome p { color: var(--muted); font-size: 13px; line-height: 1.9; margin: 0; }
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 22px;
+      padding: 0 18px;
+      height: 59px;
+      background: var(--white);
+      border: 1px solid var(--stroke);
+      border-radius: 19px;
+      box-shadow: 0 8px 18px rgba(37, 51, 79, .055);
+    }
+    .search-box svg { width: 21px; height: 21px; flex: none; color: #858b9a; }
+    .search-box input { width: 100%; min-width: 0; border: 0; outline: none; background: transparent; color: var(--ink); font-size: 14px; }
+    .search-box input::placeholder { color: #8e95a3; }
+    .search-box button { flex: none; background: none; border: none; color: var(--brand); font-size: 12px; font-weight: 700; padding: 8px; }
+
+    /* 04. Sheet-controlled filters */
+    .filters { display: flex; gap: 8px; overflow-x: auto; padding: 16px 0 5px; scrollbar-width: thin; }
+    .filter {
+      flex: none;
+      padding: 10px 15px;
+      border: 1px solid var(--stroke);
+      border-radius: 999px;
+      background: var(--white);
+      color: #596173;
+      font-size: 12px;
+      font-weight: 700;
+      transition: background .18s, color .18s, transform .18s;
+    }
+    .filter.active { color: var(--brand); border-color: #f4c3cb; background: var(--brand-soft); }
+    .filter:active { transform: scale(.96); }
+
+    /* 05. Universal crystal service tiles */
+    .services { padding: 19px 0 92px; }
+    .section-title { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 18px; }
+    .section-title h2 { margin: 0; font-size: 20px; line-height: 1.6; }
+    .service-count { font-size: 12px; color: var(--muted); white-space: nowrap; }
+    .service-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 17px; }
+    .service-tile {
+      position: relative;
+      min-width: 0;
+      min-height: 176px;
+      padding: 21px 10px 17px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      text-align: center;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid rgba(255, 255, 255, .96);
+      border-radius: var(--radius);
+      background: linear-gradient(150deg, rgba(255, 255, 255, .98), rgba(255, 255, 255, .78));
+      box-shadow: 0 10px 24px rgba(42, 53, 82, .075), inset 0 1px rgba(255, 255, 255, .95);
+      -webkit-tap-highlight-color: transparent;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .service-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      pointer-events: none;
+      background: linear-gradient(135deg, rgba(255, 255, 255, .48), transparent 48%);
+    }
+    .service-tile:hover { transform: translateY(-4px); border-color: #f3d0d5; box-shadow: 0 17px 31px rgba(42, 53, 82, .12); }
+    .service-tile:active, .service-tile.is-opening { transform: scale(.96); }
+    .tile-icon {
+      display: grid;
+      place-items: center;
+      width: 70px;
+      height: 70px;
+      border-radius: 21px;
+      background: linear-gradient(145deg, #fff, #f5f6fc);
+      border: 1px solid rgba(125, 140, 174, .09);
+      box-shadow: inset 0 1px 1px white, 0 7px 17px rgba(51, 65, 96, .075);
+      font-size: 35px;
+      line-height: 1;
+    }
+    .tile-icon img { width: 48px; height: 48px; object-fit: contain; }
+    .tile-name { font-size: 14px; font-weight: 750; line-height: 1.65; overflow-wrap: anywhere; }
+    .tile-description { display: block; font-size: 11px; color: var(--muted); line-height: 1.6; max-width: 100%; overflow-wrap: anywhere; }
+    .tile-spinner { position: absolute; top: 10px; right: 10px; width: 13px; height: 13px; border: 2px solid #f4a9b5; border-top-color: var(--brand); border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* 06. States, toast and mobile navigation */
+    .state-panel { grid-column: 1 / -1; text-align: center; padding: 46px 18px; background: var(--paper); border: 1px solid var(--stroke); border-radius: 22px; }
+    .state-panel strong { display: block; font-size: 15px; margin-bottom: 9px; }
+    .state-panel p { font-size: 12px; color: var(--muted); line-height: 1.8; margin: 0; }
+    .retry-button { margin-top: 17px; padding: 11px 19px; background: var(--brand); color: #fff; border: 0; border-radius: 12px; font-weight: 700; }
+    .skeleton { min-height: 176px; border-radius: 23px; background: linear-gradient(100deg, #e9ebf1 10%, #fff 45%, #e9ebf1 80%); background-size: 210% 100%; animation: shimmer 1.35s linear infinite; }
+    @keyframes shimmer { to { background-position-x: -210%; } }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: calc(90px + env(safe-area-inset-bottom));
+      transform: translate(-50%, 15px);
+      z-index: 90;
+      max-width: min(90vw, 480px);
+      padding: 12px 18px;
+      border-radius: 14px;
+      color: white;
+      background: #2a3142;
+      box-shadow: 0 12px 30px #151a2633;
+      font-size: 12px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s, transform .2s;
+      text-align: center;
+    }
+    .toast.visible { opacity: 1; transform: translate(-50%, 0); }
+    .bottom-nav {
+      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 40;
+      padding: 9px 10px calc(9px + env(safe-area-inset-bottom));
+      border-top: 1px solid var(--stroke);
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      justify-content: space-around;
+    }
+    .bottom-nav button {
+      display: grid;
+      justify-items: center;
+      gap: 4px;
+      min-width: 78px;
+      border: 0;
+      background: transparent;
+      color: #7d8492;
+      font-size: 11px;
+      padding: 4px;
+    }
+    .bottom-nav button[aria-current="page"] { color: var(--brand); font-weight: 800; }
+    .bottom-nav svg { width: 23px; height: 23px; }
+    .footer { text-align: center; font-size: 11px; color: #9399a5; padding: 12px 0 30px; }
+
+    @media (max-width: 950px) { .service-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; } }
+    @media (max-width: 650px) {
+      .container { width: min(100% - 28px, 540px); }
+      .topbar-inner { min-height: 68px; }
+      .brand-logo { width: 54px; height: 50px; }
+      .brand-name { font-size: 18px; }
+      .welcome { padding: 19px 0 16px; }
+      .welcome-card { padding: 23px 19px; border-radius: 23px; }
+      .welcome h2 { font-size: 23px; }
+      .search-box { margin-top: 17px; height: 56px; }
+      .services { padding-top: 13px; }
+      .section-title h2 { font-size: 18px; }
+      .service-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 11px; }
+      .service-tile { min-height: 145px; padding: 14px 6px 12px; gap: 9px; border-radius: 20px; }
+      .tile-icon { width: 57px; height: 57px; font-size: 30px; border-radius: 18px; }
+      .tile-icon img { width: 40px; height: 40px; }
+      .tile-name { font-size: 12px; }
+      .tile-description { font-size: 10px; }
+      .bottom-nav { display: flex; }
+      .footer { padding-bottom: 94px; }
+    }
+    @media (max-width: 340px) {
+      .service-grid { gap: 7px; }
+      .service-tile { min-height: 135px; }
+      .tile-icon { width: 49px; height: 49px; }
+      .tile-name { font-size: 11px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-<header class="header"><div class="shell"><a href="#home" class="brand" aria-label="भेटिन्छ होम"><div class="mark" id="brandMark">भे</div><div><strong id="brandName">भेटिन्छ</strong><small>खोजेको सबै भेटिन्छ</small></div></a><nav class="topnav"><a href="#home">होमपेज</a><a href="#services">डिजिटल सेवाहरू</a><a href="#footer">सम्पर्क</a></nav><button class="header-action" id="refreshTop">↻ रिफ्रेस</button></div></header>
-<main id="home"><section class="hero"><div class="shell"><div class="eyebrow"><span class="dot"></span> तपाईंको डिजिटल सेवा केन्द्र</div><h1 id="mainTitle">जे चाहियो, सजिलै <span>खोज्नुहोस् ।</span></h1><p class="sub" id="subTitle">नेपालभरिका व्यवसाय, सेवा, घर-जग्गा, यात्रा र दैनिक आवश्यकताहरू एउटै ठाउँमा ।</p><form class="search-panel" id="searchForm"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input id="query" aria-label="सेवा खोज्नुहोस्" placeholder="कुन सेवा खोज्दै हुनुहुन्छ ?" autocomplete="off"><button class="primary" id="searchButton" type="submit">खोज्नुहोस् →</button></form><div class="popular"><label>छिटो खोज्नुहोस् :</label><div id="categoryChips" class="popular"><button class="chip active" type="button" data-category="all">सबै सेवाहरू</button></div></div></div></section>
-<section class="section" id="services"><div class="shell"><div class="section-head"><div><h2>डिजिटल सेवाहरू</h2><p>तपाईंलाई आवश्यक सेवाहरू एकै ठाउँबाट खोल्नुहोस् ।</p></div><div class="count" id="count">लोड हुँदैछ ...</div></div><div class="grid" id="grid" aria-live="polite"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div></div></section></main>
-<footer class="footer" id="footer"><div class="shell"><span id="footerText">© भेटिन्छ ।</span><span>Digital Hub · Made for Nepal</span></div></footer><div class="toast" id="toast" role="status"></div>
-<script>
-'use strict';
-// Replace with the NEW Bhetinchha Apps Script /exec URL after deployment.
-const API_URL = 'https://script.google.com/macros/s/AKfycbyDoE_uo2JKqD0CkL9jbRtf1ptqNihyOvOZr5TG43tF5y2a5GyeRTW0PVOgfZOEgbM7/exec';
-const state={systems:[],categories:[],category:'all',busy:false,loaded:false};
-const $=id=>document.getElementById(id);
-let toastTimer;
-function notify(message){const t=$('toast');t.textContent=message;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2800)}
-function safeLink(link){try{const url=new URL(String(link));return ['https:','http:'].includes(url.protocol)?url.href:null}catch{return null}}
-function render(){const q=$('query').value.trim().toLocaleLowerCase();const list=state.systems.filter(s=>(state.category==='all'||s.CategoryID===state.category)&&[s.Name,s.Description].some(x=>String(x||'').toLocaleLowerCase().includes(q)));$('count').textContent=`${list.length} सेवा उपलब्ध`;$('grid').replaceChildren();if(!list.length){const e=document.createElement('div');e.className='empty';const strong=document.createElement('strong');strong.textContent=state.loaded?'खोजिएको सेवा भेटिएन ।':'सेवाहरू अझै जोडिएका छैनन् ।';const p=document.createElement('p');p.textContent=state.loaded?'अर्को शब्द वा वर्ग छानेर खोज्नुहोस् ।':'Google Sheets मा वास्तविक लिंक राखेर Active बनाउनुहोस् ।';e.append(strong,p);$('grid').append(e);return}for(const s of list){const c=document.createElement('article');c.className='card';const icon=document.createElement('div');icon.className='symbol';icon.textContent=s.Icon||'🔗';const h=document.createElement('h3');h.textContent=s.Name||'सेवा';const p=document.createElement('p');p.textContent=s.Description||'सेवा खोल्नुहोस् ।';const a=document.createElement('a');a.href=s.Link;a.target='_blank';a.rel='noopener noreferrer';a.textContent='सेवा खोल्नुहोस् ↗';a.addEventListener('click',()=>notify('सेवा नयाँ ट्याबमा खुल्दैछ ।'));c.append(icon,h,p,a);$('grid').append(c)}}
-function renderCategories(){const box=$('categoryChips');box.replaceChildren();const entries=[{CategoryID:'all',CategoryName:'सबै सेवाहरू',Icon:''},...state.categories];for(const cat of entries){const b=document.createElement('button');b.type='button';b.className='chip'+(cat.CategoryID===state.category?' active':'');b.textContent=(cat.Icon?cat.Icon+' ':'')+cat.CategoryName;b.addEventListener('click',()=>{state.category=cat.CategoryID;renderCategories();render();$('services').scrollIntoView({behavior:'smooth',block:'start'})});box.append(b)}}
-function settings(data){const s=data||{};$('brandName').textContent=s.BrandName||'भेटिन्छ';$('subTitle').textContent=s.SubTitle||'नेपालभरिका व्यवसाय, सेवा, घर-जग्गा, यात्रा र दैनिक आवश्यकताहरू एउटै ठाउँमा ।';$('footerText').textContent=s.FooterText||'© भेटिन्छ ।';const title=s.MainTitle||'जे चाहियो, सजिलै खोज्नुहोस् ।';const h=$('mainTitle');h.replaceChildren();const i=title.indexOf('खोज्नुहोस्');if(i>=0){h.append(document.createTextNode(title.slice(0,i)));const span=document.createElement('span');span.textContent=title.slice(i);h.append(span)}else h.textContent=title;const mark=$('brandMark');if(s.LogoURL&&safeLink(s.LogoURL)){const img=document.createElement('img');img.alt='भेटिन्छ लोगो';img.src=s.LogoURL;img.style.cssText='width:100%;height:100%;object-fit:contain;border-radius:14px';mark.replaceChildren(img)}}
-async function load(){if(state.busy)return;state.busy=true;$('refreshTop').disabled=true;$('refreshTop').textContent='लोड हुँदैछ ...';if(!API_URL){state.loaded=false;state.systems=[];state.categories=[];renderCategories();render();notify('Apps Script URL जोड्न बाँकी छ ।');state.busy=false;$('refreshTop').disabled=false;$('refreshTop').textContent='↻ रिफ्रेस';return}try{const r=await fetch(API_URL,{cache:'no-store'});if(!r.ok)throw new Error('HTTP '+r.status);const data=await r.json();if(data.ok===false)throw new Error(data.message||'API error');settings(data.settings);state.categories=Array.isArray(data.categories)?data.categories.filter(x=>String(x.Status).toLowerCase()==='active').sort((a,b)=>Number(a.DisplayOrder)-Number(b.DisplayOrder)):[];state.systems=Array.isArray(data.systems)?data.systems.filter(x=>String(x.Status).toLowerCase()==='active'&&safeLink(x.Link)).sort((a,b)=>Number(a.DisplayOrder)-Number(b.DisplayOrder)):[];state.loaded=true;renderCategories();render();notify('सेवाहरू अपडेट भए ।')}catch(err){state.loaded=false;state.systems=[];render();notify('डाटा लोड भएन । फेरि रिफ्रेस गर्नुहोस् ।');console.error(err)}finally{state.busy=false;$('refreshTop').disabled=false;$('refreshTop').textContent='↻ रिफ्रेस'}}
-$('searchForm').addEventListener('submit',e=>{e.preventDefault();render();$('services').scrollIntoView({behavior:'smooth',block:'start'})});$('query').addEventListener('input',render);$('refreshTop').addEventListener('click',load);load();
-</script>
-</body></html>
+  <!-- 07. Header -->
+  <header class="topbar" id="home">
+    <div class="container topbar-inner">
+      <div class="identity">
+        <img
+          class="brand-logo"
+          id="brandLogo"
+          src="Bhetinch%20logo.png"
+          alt="भेटिन्छ लोगो"
+          decoding="async"
+        >
+        <div>
+          <h1 class="brand-name" id="brandName">भेटिन्छ</h1>
+          <span class="brand-caption">Digital Hub</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="icon-button" id="refreshButton" type="button" aria-label="सेवाहरू रिफ्रेस गर्नुहोस्" title="रिफ्रेस">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 08. Search area -->
+    <section class="welcome" aria-labelledby="welcomeTitle">
+      <div class="container">
+        <div class="welcome-card">
+          <span class="eyebrow">Bhetinchha Digital Hub</span>
+          <h2 id="welcomeTitle">सबै डिजिटल सेवाहरू एकै ठाउँमा ।</h2>
+          <p id="welcomeSubtitle">आफूलाई चाहिएको सेवा खोज्नुहोस् र एक क्लिकमा खोल्नुहोस् ।</p>
+          <div class="search-box" role="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.3"/><path d="m16.4 16.4 5 5"/></svg>
+            <input id="searchInput" type="search" placeholder="सेवा वा सिस्टम खोज्नुहोस्..." aria-label="सेवा खोज्नुहोस्" autocomplete="off">
+            <button id="clearSearch" type="button" hidden>हटाउनुहोस्</button>
+          </div>
+        </div>
+        <div class="filters" id="categoryFilters" aria-label="सेवा वर्गहरू"></div>
+      </div>
+    </section>
+
+    <!-- 09. Service grid: ONLY Google Sheets data appears here -->
+    <section class="services" id="services" aria-labelledby="servicesHeading">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="servicesHeading">डिजिटल सेवाहरू</h2>
+          <span class="service-count" id="serviceCount" aria-live="polite">लोड हुँदैछ...</span>
+        </div>
+        <div class="service-grid" id="serviceGrid" aria-live="polite" aria-busy="true">
+          <div class="skeleton" aria-hidden="true"></div>
+          <div class="skeleton" aria-hidden="true"></div>
+          <div class="skeleton" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container" id="footer">© <span id="footerYear"></span> भेटिन्छ Digital Hub ।</footer>
+
+  <!-- Navigation controls operate locally; no invented external links. -->
+  <nav class="bottom-nav" aria-label="मुख्य नेभिगेसन">
+    <button id="homeNav" type="button" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true"><path d="m3 10 9-7 9 7v11h-7v-7h-4v7H3z"/></svg>
+      गृहपृष्ठ
+    </button>
+    <button id="servicesNav" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      सेवाहरू
+    </button>
+    <button id="searchNav" type="button">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="7.3"/><path d="m16.4 16.4 5 5"/></svg>
+      खोजी
+    </button>
+  </nav>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    'use strict';
+
+    /* 10. Google Apps Script configuration */
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyDoE_uo2JKqD0CkL9jbRtf1ptqNihyOvOZr5TG43tF5y2a5GyeRTW0PVOgfZOEgbM7/exec';
+
+    const state = {
+      systems: [],
+      categories: [],
+      selectedCategory: 'all',
+      loading: false,
+      loaded: false,
+      error: false
+    };
+
+    const byId = (id) => document.getElementById(id);
+    const FALLBACK_LOGO = 'Bhetinch%20logo.png';
+    let toastTimeout;
+
+    /* 11. Safe helpers */
+    function safeHttpUrl(value) {
+      try {
+        const url = new URL(String(value || '').trim(), window.location.href);
+        return ['https:', 'http:'].includes(url.protocol) ? url.href : null;
+      } catch (_) {
+        return null;
+      }
+    }
+
+    function isActive(value) {
+      return String(value || '').trim().toLowerCase() === 'active';
+    }
+
+    function displayOrder(value) {
+      const number = Number(value);
+      return Number.isFinite(number) && String(value).trim() !== '' ? number : 999;
+    }
+
+    function toast(message) {
+      const element = byId('toast');
+      element.textContent = message;
+      element.classList.add('visible');
+      window.clearTimeout(toastTimeout);
+      toastTimeout = window.setTimeout(() => element.classList.remove('visible'), 2600);
+    }
+
+    function createElement(tag, className, text) {
+      const element = document.createElement(tag);
+      if (className) element.className = className;
+      if (text !== undefined) element.textContent = text;
+      return element;
+    }
+
+    /* 12. Sheet-driven settings */
+    function applySettings(settings) {
+      const values = settings || {};
+      byId('brandName').textContent = values.BrandName || 'भेटिन्छ';
+
+      // Keep the Digital Hub distinct from the main Bhetinchha directory.
+      const logo = byId('brandLogo');
+      const configuredLogo = safeHttpUrl(values.LogoURL);
+      logo.src = configuredLogo || FALLBACK_LOGO;
+      logo.onerror = function () {
+        if (!this.src.endsWith(FALLBACK_LOGO)) this.src = FALLBACK_LOGO;
+        else this.style.visibility = 'hidden';
+      };
+    }
+
+    /* 13. Category filters */
+    function renderFilters() {
+      const container = byId('categoryFilters');
+      container.replaceChildren();
+
+      // Show filters only if the sheet actually has service entries.
+      if (state.systems.length === 0) {
+        container.hidden = true;
+        return;
+      }
+
+      container.hidden = false;
+      const usedCategories = new Set(state.systems.map((item) => String(item.CategoryID || '').trim()));
+      const filters = [
+        { CategoryID: 'all', CategoryName: 'सबै सेवाहरू', Icon: '' },
+        ...state.categories.filter((category) => usedCategories.has(String(category.CategoryID || '').trim()))
+      ];
+
+      for (const category of filters) {
+        const button = createElement('button', 'filter');
+        button.type = 'button';
+        button.textContent = `${category.Icon ? category.Icon + ' ' : ''}${category.CategoryName}`;
+        button.classList.toggle('active', state.selectedCategory === category.CategoryID);
+        button.setAttribute('aria-pressed', String(state.selectedCategory === category.CategoryID));
+        button.addEventListener('click', () => {
+          if (state.selectedCategory === category.CategoryID) return;
+          state.selectedCategory = category.CategoryID;
+          renderFilters();
+          renderServices();
+        });
+        container.appendChild(button);
+      }
+    }
+
+    /* 14. Tile icon: emoji or image URL from Icon column */
+    function createIcon(iconValue) {
+      const holder = createElement('span', 'tile-icon');
+      const iconText = String(iconValue || '').trim();
+      const iconUrl = /^https?:\/\//i.test(iconText) ? safeHttpUrl(iconText) : null;
+
+      if (iconUrl) {
+        const image = document.createElement('img');
+        image.src = iconUrl;
+        image.alt = '';
+        image.loading = 'lazy';
+        image.decoding = 'async';
+        image.onerror = () => holder.replaceChildren(document.createTextNode('🔗'));
+        holder.appendChild(image);
+      } else {
+        holder.textContent = iconText || '🔗';
+      }
+
+      return holder;
+    }
+
+    /* 15. Prevent repeated opening while giving immediate feedback */
+    function makeTile(system) {
+      const url = safeHttpUrl(system.Link);
+      const tile = createElement('a', 'service-tile');
+      tile.href = url;
+      tile.target = '_blank';
+      tile.rel = 'noopener noreferrer';
+      tile.setAttribute('aria-label', `${system.Name || 'सेवा'} खोल्नुहोस्`);
+      tile.appendChild(createIcon(system.Icon));
+      tile.appendChild(createElement('span', 'tile-name', system.Name || 'सेवा'));
+
+      // Descriptions are optional, allowing a compact grid like the reference.
+      if (String(system.Description || '').trim()) {
+        tile.appendChild(createElement('span', 'tile-description', system.Description));
+      }
+
+      let opening = false;
+      tile.addEventListener('click', (event) => {
+        if (opening) {
+          event.preventDefault();
+          return;
+        }
+
+        opening = true;
+        tile.classList.add('is-opening');
+        const spinner = createElement('span', 'tile-spinner');
+        spinner.setAttribute('aria-hidden', 'true');
+        tile.appendChild(spinner);
+        toast('सेवा खोलिँदैछ ।');
+
+        // Allow later intentional clicks, but prevent rapid double-clicks.
+        window.setTimeout(() => {
+          opening = false;
+          tile.classList.remove('is-opening');
+          spinner.remove();
+        }, 1500);
+      });
+
+      return tile;
+    }
+
+    /* 16. Rendering and empty/error states */
+    function showState(title, message, allowRetry = false) {
+      const panel = createElement('div', 'state-panel');
+      panel.appendChild(createElement('strong', '', title));
+      panel.appendChild(createElement('p', '', message));
+
+      if (allowRetry) {
+        const retry = createElement('button', 'retry-button', 'फेरि प्रयास गर्नुहोस्');
+        retry.type = 'button';
+        retry.addEventListener('click', loadServices);
+        panel.appendChild(retry);
+      }
+
+      byId('serviceGrid').replaceChildren(panel);
+    }
+
+    function renderServices() {
+      const grid = byId('serviceGrid');
+      const keyword = byId('searchInput').value.trim().toLocaleLowerCase();
+      byId('clearSearch').hidden = keyword.length === 0;
+
+      if (state.error) {
+        byId('serviceCount').textContent = 'लोड हुन सकेन';
+        showState('सेवाहरू लोड गर्न सकिएन ।', 'इन्टरनेट वा Apps Script कनेक्सन जाँचेर पुनः प्रयास गर्नुहोस् ।', true);
+        return;
+      }
+
+      const matches = state.systems.filter((system) => {
+        const matchesCategory = state.selectedCategory === 'all' ||
+          String(system.CategoryID || '').trim() === state.selectedCategory;
+        const matchesSearch = [system.Name, system.Description]
+          .some((value) => String(value || '').toLocaleLowerCase().includes(keyword));
+        return matchesCategory && matchesSearch;
+      });
+
+      byId('serviceCount').textContent = `${matches.length} सेवा`;
+      grid.replaceChildren();
+
+      if (!matches.length) {
+        showState(
+          keyword || state.selectedCategory !== 'all' ? 'खोजिएको सेवा भेटिएन ।' : 'अहिले कुनै सेवा उपलब्ध छैन ।',
+          keyword || state.selectedCategory !== 'all'
+            ? 'अर्को शब्द वा वर्ग प्रयोग गरेर खोज्नुहोस् ।'
+            : 'Google Sheets मा सेवा, आइकन र लिंक थपेर Active गरेपछि यहाँ स्वतः देखिनेछ ।'
+        );
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      matches.forEach((system) => fragment.appendChild(makeTile(system)));
+      grid.appendChild(fragment);
+    }
+
+    /* 17. Fetch live public JSON from existing Apps Script */
+    async function loadServices() {
+      if (state.loading) return;
+
+      state.loading = true;
+      state.error = false;
+      const refresh = byId('refreshButton');
+      refresh.disabled = true;
+      refresh.setAttribute('aria-label', 'लोड हुँदैछ');
+      byId('serviceGrid').setAttribute('aria-busy', 'true');
+      byId('serviceCount').textContent = 'लोड हुँदैछ...';
+
+      if (!state.loaded) {
+        byId('serviceGrid').replaceChildren(
+          ...Array.from({ length: 6 }, () => createElement('div', 'skeleton'))
+        );
+      }
+
+      try {
+        const response = await fetch(API_URL, { cache: 'no-store', redirect: 'follow' });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const payload = await response.json();
+        if (payload.ok !== true) throw new Error(payload.message || 'Invalid API response');
+
+        state.categories = (Array.isArray(payload.categories) ? payload.categories : [])
+          .filter((category) => isActive(category.Status))
+          .sort((a, b) => displayOrder(a.DisplayOrder) - displayOrder(b.DisplayOrder));
+
+        state.systems = (Array.isArray(payload.systems) ? payload.systems : [])
+          .filter((system) => isActive(system.Status) && safeHttpUrl(system.Link))
+          .sort((a, b) => displayOrder(a.DisplayOrder) - displayOrder(b.DisplayOrder));
+
+        state.loaded = true;
+        applySettings(payload.settings);
+        renderFilters();
+        renderServices();
+      } catch (error) {
+        console.error('Bhetinchha Digital Hub API:', error);
+        if (state.loaded) {
+          toast('नयाँ डाटा लोड भएन । अघिल्लो डाटा देखाइएको छ ।');
+          renderServices();
+        } else {
+          state.error = true;
+          renderServices();
+          toast('कनेक्सनमा समस्या आयो ।');
+        }
+      } finally {
+        state.loading = false;
+        refresh.disabled = false;
+        refresh.setAttribute('aria-label', 'सेवाहरू रिफ्रेस गर्नुहोस्');
+        byId('serviceGrid').setAttribute('aria-busy', 'false');
+      }
+    }
+
+    /* 18. Accessible mobile navigation */
+    function scrollToId(id) {
+      byId(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    byId('footerYear').textContent = new Date().getFullYear();
+    byId('refreshButton').addEventListener('click', loadServices);
+    byId('searchInput').addEventListener('input', renderServices);
+    byId('clearSearch').addEventListener('click', () => {
+      byId('searchInput').value = '';
+      renderServices();
+      byId('searchInput').focus();
+    });
+    byId('homeNav').addEventListener('click', () => scrollToId('home'));
+    byId('servicesNav').addEventListener('click', () => scrollToId('services'));
+    byId('searchNav').addEventListener('click', () => {
+      scrollToId('home');
+      byId('searchInput').focus({ preventScroll: true });
+    });
+
+    loadServices();
+  </script>
+</body>
+</html>
